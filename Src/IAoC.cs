@@ -5,7 +5,7 @@
         abstract void Part1();
         abstract void Part2();
 
-        public string[] getContent()
+        public string[] GetContent()
         {
             return File.ReadAllLines($"Res/{GetType().Name}.txt");
         }
