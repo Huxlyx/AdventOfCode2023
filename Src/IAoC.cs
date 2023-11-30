@@ -2,7 +2,12 @@
 {
     internal interface IAoC
     {
-        static abstract void Part1();
-        static abstract void Part2();
+        abstract void Part1();
+        abstract void Part2();
+
+        public string[] getContent()
+        {
+            return File.ReadAllLines($"Res/{GetType().Name}.txt");
+        }
     }
 }
