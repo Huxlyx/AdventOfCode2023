@@ -2,8 +2,8 @@
 {
     internal interface IAoC
     {
-        abstract void Part1();
-        abstract void Part2();
+        abstract void Part1(IAoC aoc);
+        abstract void Part2(IAoC aoc);
 
         public string[] GetContent()
         {
