@@ -1,4 +1,6 @@
-﻿namespace AdventOfCode2023.Src
+﻿using System.Text;
+
+namespace AdventOfCode2023.Src
 {
     internal class Day01 : IAoC
     {
@@ -21,6 +23,11 @@
             Console.WriteLine(sum);
         }
 
+        public void Part1Optimized(IAoC aoc)
+        {
+            throw new NotImplementedException();
+        }
+
         public void Part2(IAoC aoc)
         {
             int sum = 0;
@@ -28,59 +35,64 @@
             foreach (string str in content)
             {
 
-                string working = "";
-                for (int i = 0; i <  str.Length; i++)
+                StringBuilder sb = new(str.Length);
+                for (int i = 0; i < str.Length; i++)
                 {
                     if (str[i] >= '0' && str[i] <= '9')
                     {
-                        working += str[i];
+                        sb.Append(str[i]);
                         continue;
                     }
 
                     switch (str[i..])
                     {
                         case string s when s.StartsWith("one"):
-                            working += '1';
+                            sb.Append('1');
                             i += 1;
                             break;
                         case string s when s.StartsWith("two"):
-                            working += '2';
+                            sb.Append('2');
                             i += 1;
                             break;
                         case string s when s.StartsWith("three"):
-                            working += '3';
+                            sb.Append('3');
                             i += 3;
                             break;
                         case string s when s.StartsWith("four"):
-                            working += '4';
+                            sb.Append('4');
                             i += 3;
                             break;
                         case string s when s.StartsWith("five"):
-                            working += '5';
+                            sb.Append('5');
                             i += 2;
                             break;
                         case string s when s.StartsWith("six"):
-                            working += '6';
+                            sb.Append('6');
                             i += 2;
                             break;
                         case string s when s.StartsWith("seven"):
-                            working += '7';
+                            sb.Append('7');
                             i += 3;
                             break;
                         case string s when s.StartsWith("eight"):
-                            working += '8';
+                            sb.Append('8');
                             i += 3;
                             break;
                         case string s when s.StartsWith("nine"):
-                            working += '9';
+                            sb.Append('9');
                             i += 2;
                             break;
                     }
                 }
-
+                string working = sb.ToString();
                 sum += int.Parse("" + working[0] + working[^1]);
             }
             Console.WriteLine(sum);
+        }
+
+        public void Part2Optimized(IAoC aoc)
+        {
+            throw new NotImplementedException();
         }
     }
 }
