@@ -10,8 +10,8 @@ namespace AdventOfCode2023
         {
             Stopwatch sw = new();
             sw.Start();
-            var aoc = new Day05();
-            aoc.Part2(aoc);
+            var aoc = new Day06();
+            aoc.Part1(aoc);
             Console.WriteLine("Done after " + sw.Elapsed);
 
 
