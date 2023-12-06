@@ -14,13 +14,12 @@ namespace AdventOfCode2023.Src
         {
             string[] lines = aoc.GetContent();
 
-            int[] times = lines[0].Split(':')[1].Split(' ', StringSplitOptions.RemoveEmptyEntries).Select(i => int.Parse(i)).ToArray();
-            int[] records = lines[1].Split(':')[1].Split(' ', StringSplitOptions.RemoveEmptyEntries).Select(i => int.Parse(i)).ToArray();
+            int[] times = lines[0].Split(':')[1].Split(' ', StringSplitOptions.RemoveEmptyEntries).Select(int.Parse).ToArray();
+            int[] records = lines[1].Split(':')[1].Split(' ', StringSplitOptions.RemoveEmptyEntries).Select(int.Parse).ToArray();
 
             int result = 1;
             for (int time = 0; time < times.Length; ++time)
             {
-
                 int faster = 0;
                 for (int i = 0; i < times[time]; ++i)
                 {
@@ -45,17 +44,14 @@ namespace AdventOfCode2023.Src
         {
             string[] lines = aoc.GetContent();
 
-            long times = lines[0].Replace(" ", "").Split(':')[1].Split(' ', StringSplitOptions.RemoveEmptyEntries).Select(i => long.Parse(i)).First();
-            long records = lines[1].Replace(" ", "").Split(':')[1].Split(' ', StringSplitOptions.RemoveEmptyEntries).Select(i => long.Parse(i)).First();
+            long times = lines[0].Replace(" ", "").Split(':')[1].Split(' ', StringSplitOptions.RemoveEmptyEntries).Select(long.Parse).First();
+            long records = lines[1].Replace(" ", "").Split(':')[1].Split(' ', StringSplitOptions.RemoveEmptyEntries).Select(long.Parse).First();
 
             int faster = 0;
             for (long i = 0; i < times; ++i)
             {
                 long distance = i * (times - i);
-                if (i % 1_000_000 == 0)
-                {
-                    Console.WriteLine(i + " of " + times);
-                }
+
                 if (distance > records)
                 {
                     ++faster;
