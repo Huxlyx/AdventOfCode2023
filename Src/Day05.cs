@@ -10,9 +10,9 @@ namespace AdventOfCode2023.Src
     class Day05 : IAoC
     {
 
-        public struct Map
+        public readonly struct Map
         {
-            string name;
+            readonly string name;
             public List<Mapping> Mappings { get; init; } = new();
 
             public Map(string name)
@@ -21,20 +21,31 @@ namespace AdventOfCode2023.Src
             }
 
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            public long DoMap(long src)
+            public readonly long DoMap(long src)
             {
                 foreach (Mapping mapping in Mappings)
                 {
-                    if (src >= mapping.src && src <= mapping.src + mapping.len)
+                    if (src >= mapping.src && src < mapping.src + mapping.len)
                     {
                         return src + mapping.offset;
                     }
                 }
                 return src;
             }
+
+            public override readonly string ToString()
+            {
+                StringBuilder sb = new();
+                sb.Append(name).AppendLine();
+                foreach (Mapping mapping in Mappings)
+                {
+                    sb.Append(mapping.ToString()).AppendLine();
+                }
+                return sb.ToString();
+            }
         }
 
-        public struct Mapping
+        public readonly struct Mapping
         {
             public readonly long dest;
             public readonly long src;
@@ -47,6 +58,11 @@ namespace AdventOfCode2023.Src
                 this.src = src;
                 this.len = len;
                 this.offset = dest - src;
+            }
+
+            public override readonly string ToString()
+            {
+                return dest + " " + src + " " + len;
             }
         }
 
