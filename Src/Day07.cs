@@ -134,50 +134,38 @@
             {
                 switch (count[i])
                 {
+                    case 5:
+                    case 4 when jokers > 0:
+                        return FIVE_OF_A_KIND;
+                    case 4:
+                        return FOUR_OF_A_KIND;
+                    case 3: 
+                        tripple = true; 
+                        break;
+                    case 2 when pair:
+                        return jokers > 0 ? FULL_HOUSE : TWO_PAIR;
                     case 2:
-                        if (pair)
-                        {
-                            return jokers > 0 ? FULL_HOUSE : TWO_PAIR;
-                        }
                         pair = true;
                         break;
-                    case 3: tripple = true; break;
-                    case 4: return jokers > 0 ? FIVE_OF_A_KIND : FOUR_OF_A_KIND;
-                    case 5: return FIVE_OF_A_KIND;
                 }
             }
 
             switch (jokers)
             {
-                case 5: return FIVE_OF_A_KIND;
-                case 4: return FIVE_OF_A_KIND;
-                case 3: return pair ? FIVE_OF_A_KIND : FOUR_OF_A_KIND;
-                case 2: 
-                    if (tripple)
-                    {
-                        return FIVE_OF_A_KIND;
-                    }
-                    else if (pair)
-                    {
-                        return FOUR_OF_A_KIND;
-                    }
-                    else
-                    {
-                        return THREE_OF_A_KIND;
-                    }
+                case 5:
+                case 4:
+                case 3 when pair:
+                case 2 when tripple:
+                    return FIVE_OF_A_KIND;
+                case 3:
+                case 2 when pair:
+                case 1 when tripple:
+                    return FOUR_OF_A_KIND;
+                case 2:
+                case 1 when pair:
+                    return THREE_OF_A_KIND;
                 case 1:
-                    if (tripple)
-                    {
-                        return FOUR_OF_A_KIND;
-                    }
-                    if (pair)
-                    {
-                        return THREE_OF_A_KIND;
-                    }
-                    else
-                    {
-                        return ONE_PAIR;
-                    }
+                    return ONE_PAIR;
             }
 
 
