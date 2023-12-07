@@ -127,7 +127,6 @@
 
             bool pair = false;
             bool tripple = false;
-
             int jokers = count[^1];
 
             for (int i = 0; i < count.Length - 1; ++i)
@@ -143,6 +142,7 @@
                         tripple = true; 
                         break;
                     case 2 when pair:
+                        /* second pair we encounter -> full house if we have a joker, otherwise two pair */
                         return jokers > 0 ? FULL_HOUSE : TWO_PAIR;
                     case 2:
                         pair = true;
@@ -150,6 +150,7 @@
                 }
             }
 
+            /* use jokers to get best type possible */
             switch (jokers)
             {
                 case 5:
