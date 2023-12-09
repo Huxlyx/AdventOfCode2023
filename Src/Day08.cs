@@ -1,12 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Numerics;
-using System.Text;
-using System.Threading.Tasks;
-using static System.Runtime.InteropServices.JavaScript.JSType;
-
-namespace AdventOfCode2023.Src
+﻿namespace AdventOfCode2023.Src
 {
     internal class Day08 : IAoC
     {
