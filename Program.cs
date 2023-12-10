@@ -7,22 +7,22 @@ namespace AdventOfCode2023
 {
     internal class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
-            //Stopwatch sw = new();
-            //sw.Start();
-            //var aoc = new Day09();
-            //aoc.Part1(aoc);
-            //Console.WriteLine("Done after " + sw.Elapsed);
-            //sw.Restart();
-            //aoc.Part2(aoc);
-            //Console.WriteLine("Done after " + sw.Elapsed);
+            Stopwatch sw = new();
+            sw.Start();
+            var aoc = new Day10();
+            aoc.Part1(aoc);
+            Console.WriteLine("Done after " + sw.Elapsed);
+            sw.Restart();
+            aoc.Part2(aoc);
+            Console.WriteLine("Done after " + sw.Elapsed);
 
             //sw.Restart();
             //aoc.Part2(aoc);
             //Console.WriteLine("Done after " + sw.Elapsed);
 
-            BenchmarkRunner.Run<Benchmarks>();
+            //BenchmarkRunner.Run<Benchmarks>();
         }
     }
 }
