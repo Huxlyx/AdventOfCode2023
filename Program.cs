@@ -11,12 +11,12 @@ namespace AdventOfCode2023
         {
             Stopwatch sw = new();
             sw.Start();
-            var aoc = new Day11();
-            aoc.Part1(aoc);
-            Console.WriteLine("Done after " + sw.Elapsed);
-            sw.Restart();
+            var aoc = new Day14();
             aoc.Part2(aoc);
             Console.WriteLine("Done after " + sw.Elapsed);
+            //sw.Restart();
+            //aoc.Part2(aoc);
+            //Console.WriteLine("Done after " + sw.Elapsed);
 
             //BenchmarkRunner.Run<Benchmarks>();
         }
